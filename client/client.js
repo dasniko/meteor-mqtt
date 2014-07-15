@@ -1,4 +1,12 @@
 Meteor.subscribe("mqttMessages");
+var topicDep = new Deps.Dependency;
+
+Deps.autorun(function(){
+    topicDep.depend();
+    Meteor.call("getTopic", function(err, obj) {
+        Session.set("topic", obj);
+    });
+});
 
 Template.messages.topic = function() {
     return Session.get("topic");
@@ -36,7 +44,7 @@ _sendTopic = function() {
     var el = document.getElementById("topic");
     var tp = el.value;
     Meteor.call("setTopic", tp);
-    Session.set("topic", tp);
+    topicDep.changed();
     el.value = "";
     el.focus();
 };

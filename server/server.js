@@ -43,5 +43,8 @@ Meteor.methods({
         console.log("set new Topic: " + tp);
         mqttClient.unsubscribe(topic).subscribe(tp);
         topic = tp;
+    },
+    getTopic: function() {
+        return topic;
     }
 });
