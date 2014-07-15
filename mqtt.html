@@ -1,0 +1,47 @@
+<head>
+    <title>Meteor MQTT Client Admin</title>
+</head>
+
+<body>
+<h1>Meteor MQTT Client Admin</h1>
+{{> admin}}
+{{> topic}}
+{{> messages}}
+</body>
+
+<template name="admin">
+    <input type="button" id="startClient" value="Start Client" class="btn btn-success">
+    <input type="button" id="stopClient" value="Stop Client" class="btn btn-danger">
+</template>
+
+<template name="topic">
+    <h2>Topic</h2>
+    <input type="text" id="topic" placeholder="e.g. my/topic/#">
+    <input type="button" id="sendTopic" value="Send topic" class="btn btn-primary">
+</template>
+
+<template name="messages">
+    <h2>Messages for topic {{topic}}</h2>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Time</th>
+            <th>Topic</th>
+            <th>Message</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each lastMessages}}
+            {{> msg}}
+        {{/each}}
+        </tbody>
+    </table>
+</template>
+
+<template name="msg">
+    <tr>
+        <td>{{tsString}}</td>
+        <td>{{topic}}</td>
+        <td>{{message}}</td>
+    </tr>
+</template>

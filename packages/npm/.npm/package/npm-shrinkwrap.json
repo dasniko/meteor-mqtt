@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "mqtt": {
+      "version": "0.3.11",
+      "dependencies": {
+        "readable-stream": {
+          "version": "1.0.27-1",
+          "dependencies": {
+            "core-util-is": {
+              "version": "1.0.1"
+            },
+            "isarray": {
+              "version": "0.0.1"
+            },
+            "string_decoder": {
+              "version": "0.10.25-1"
+            },
+            "inherits": {
+              "version": "2.0.1"
+            }
+          }
+        }
+      }
+    }
+  }
+}
