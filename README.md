@@ -1,4 +1,4 @@
 Meteor MQTT Client
 ==================
 
-Meteor MQTT client using mqtt package from npm
+[Meteor](http://www.meteor.com) [MQTT](http://mqtt.org/) client using [mqtt package from NPM](https://www.npmjs.org/package/mqtt).
