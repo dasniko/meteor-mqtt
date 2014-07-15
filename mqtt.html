@@ -15,13 +15,13 @@
 </template>
 
 <template name="topic">
-    <h2>Topic</h2>
-    <input type="text" id="topic" placeholder="e.g. my/topic/#">
-    <input type="button" id="sendTopic" value="Send topic" class="btn btn-primary">
+    <h2>Topic Query</h2>
+    <input type="text" id="topicQuery" placeholder="e.g. my/topic/#">
+    <input type="button" id="sendTopicQuery" value="Send topic query" class="btn btn-primary">
 </template>
 
 <template name="messages">
-    <h2>Messages for topic query '{{topic}}'</h2>
+    <h2>Messages for topic query <mark><em>{{topicQuery}}</em></mark></h2>
     <table border="1">
         <thead>
         <tr>

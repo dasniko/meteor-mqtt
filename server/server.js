@@ -1,6 +1,6 @@
 var host = "broker.mqttdashboard.com";
 var port = 1883;
-var topic = "#";
+var topicQuery = "#";
 
 Meteor.startup(function () {
     Messages.remove({});
@@ -33,18 +33,18 @@ var addMsgToCollection = Meteor.bindEnvironment(function(message) {
 Meteor.methods({
     startClient: function() {
         console.log("startClient called");
-        mqttClient.subscribe(topic);
+        mqttClient.subscribe(topicQuery);
     },
     stopClient: function() {
         console.log("stopClient called");
-        mqttClient.unsubscribe(topic);
+        mqttClient.unsubscribe(topicQuery);
     },
-    setTopic: function(tp) {
-        console.log("set new Topic: " + tp);
-        mqttClient.unsubscribe(topic).subscribe(tp);
-        topic = tp;
+    setTopicQuery: function(newTopicQuery) {
+        console.log("set new Topic: " + newTopicQuery);
+        mqttClient.unsubscribe(topicQuery).subscribe(newTopicQuery);
+        topicQuery = newTopicQuery;
     },
-    getTopic: function() {
-        return topic;
+    getTopicQuery: function() {
+        return topicQuery;
     }
 });
