@@ -1,13 +1,22 @@
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Meteor MQTT Client Admin</title>
 </head>
 
 <body>
-<h1>Meteor MQTT Client Admin</h1>
-{{> admin}}
-{{> topic}}
-{{> messages}}
-{{> publish}}
+    <div class="container-fluid">
+        <h1>Meteor MQTT Client Admin</h1>
+        {{> admin}}
+        <div class="row">
+            <div class="col-lg-6">
+                {{> topic}}
+            </div>
+            <div class="col-lg-6">
+                {{> publish}}
+            </div>
+        </div>
+        {{> messages}}
+    </div>
 </body>
 
 <template name="admin">
