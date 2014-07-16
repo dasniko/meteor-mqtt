@@ -67,3 +67,8 @@ Meteor.methods({
         });
     }
 });
+
+// delete every 120 seconds old data (messages) from the collection/mongodb
+Meteor.setInterval(function() {
+    Messages.remove({});
+}, 2*60*1000);
