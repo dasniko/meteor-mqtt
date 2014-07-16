@@ -58,5 +58,12 @@ Meteor.methods({
     // send the topic query to the caller
     getTopicQuery: function() {
         return topicQuery;
+    },
+    // publishes a message with a topic to the broker
+    publishMessage: function(topic, message) {
+        console.log("message to send: " + topic + ": " + message);
+        mqttClient.publish(topic, message, function() {
+            console.log("message sent: " + message);
+        });
     }
 });

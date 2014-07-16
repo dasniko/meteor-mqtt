@@ -7,6 +7,7 @@
 {{> admin}}
 {{> topic}}
 {{> messages}}
+{{> publish}}
 </body>
 
 <template name="admin">
@@ -44,4 +45,11 @@
         <td>{{topic}}</td>
         <td>{{message}}</td>
     </tr>
+</template>
+
+<template name="publish">
+    <h2>Publish a message</h2>
+    <input type="text" id="topic" placeholder="topic" /><br />
+    <input type="text" id="message" placeholder="message" />
+    <button id="publishMessage" class="btn btn-info">Publish</button>
 </template>

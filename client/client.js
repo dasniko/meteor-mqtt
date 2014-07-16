@@ -47,6 +47,19 @@ Template.topic.events({
     }
 });
 
+// the click-event for publishing a message
+Template.publish.events({
+   'click #publishMessage': function() {
+       var elTopic = document.getElementById("topic");
+       var elMessage = document.getElementById("message");
+       Meteor.call("publishMessage", elTopic.value, elMessage.value, function() {
+           elTopic.value = "";
+           elMessage.value = "";
+           elTopic.focus();
+       });
+   }
+});
+
 // get the new query from the input field and send it to the server, reset field
 // tell the dependency, that it has changed and has to be run again
 _sendTopic = function() {
