@@ -1,6 +1,4 @@
-// some (default) values to use
-var host = "broker.mqttdashboard.com";
-var port = 1883;
+// default topic query
 var topicQuery = "#";
 
 // for development purposes, delete the DB on startup, don't collect too much old data
@@ -16,7 +14,7 @@ Meteor.publish("mqttMessages", function() {
 
 // initialize the mqtt client from mqtt npm-package
 var mqtt = Meteor.require("mqtt");
-var mqttClient = mqtt.createClient(port, host);
+var mqttClient = mqtt.createClient(config.mqttPort, config.mqttHost);
 mqttClient
     .on("connect", function() {
         console.log("client connected");
