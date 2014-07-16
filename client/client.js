@@ -52,8 +52,9 @@ Template.topic.events({
 _sendTopic = function() {
     var el = document.getElementById("topicQuery");
     var topicQuery = el.value;
-    Meteor.call("setTopicQuery", topicQuery);
-    topicDep.changed();
-    el.value = "";
-    el.focus();
+    Meteor.call("setTopicQuery", topicQuery, function() {
+        topicDep.changed();
+        el.value = "";
+        el.focus();
+    });
 };
