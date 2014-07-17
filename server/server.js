@@ -67,6 +67,9 @@ Meteor.methods({
         mqttClient.publish(topic, message, function() {
             console.log("message sent: " + message);
         });
+    },
+    getConfigValues: function() {
+        return config;
     }
 });
 

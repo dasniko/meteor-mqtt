@@ -1,11 +1,12 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Meteor MQTT Client Admin</title>
+    <title>Meteor MQTT Dashboard</title>
 </head>
 
 <body>
     <div class="container-fluid">
-        <h1>Meteor MQTT Client Admin</h1>
+        <h1>Meteor MQTT Dashboard</h1>
+        {{> config}}
         {{> admin}}
         <div class="row">
             <div class="col-lg-6">
@@ -20,14 +21,20 @@
 </body>
 
 <template name="admin">
-    <input type="button" id="startClient" value="Start Client" class="btn btn-success">
-    <input type="button" id="stopClient" value="Stop Client" class="btn btn-danger">
+    <div>
+        <button id="startClient" class="btn btn-success">Start subscription</button>
+        <button id="stopClient" class="btn btn-danger">Stop subscription</button>
+    </div>
+</template>
+
+<template name="config">
+    <p><mark>Broker: {{host}}:{{port}}</mark></p>
 </template>
 
 <template name="topic">
     <h2>Topic Query</h2>
     <input type="text" id="topicQuery" placeholder="e.g. my/topic/#">
-    <input type="button" id="sendTopicQuery" value="Send topic query" class="btn btn-primary">
+    <button id="sendTopicQuery" class="btn btn-primary">Send topic query</button>
 </template>
 
 <template name="messages">
@@ -60,5 +67,5 @@
     <h2>Publish a message</h2>
     <input type="text" id="topic" placeholder="topic" /><br />
     <input type="text" id="message" placeholder="message" />
-    <button id="publishMessage" class="btn btn-info">Publish</button>
+    <button id="publishMessage" class="btn btn-info">Publish Message</button>
 </template>

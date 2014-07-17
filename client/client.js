@@ -6,6 +6,8 @@ Meteor.subscribe("mqttMessages");
 // we need a dependency later on to refresh the topic query
 var topicDep = new Deps.Dependency;
 
+Session.setDefault("configValues", {});
+
 // this is the dependend function to retrieve and set the topic query
 Deps.autorun(function(){
     topicDep.depend();
@@ -13,6 +15,20 @@ Deps.autorun(function(){
         Session.set("topicQuery", obj);
     });
 });
+
+Meteor.startup(function() {
+    Meteor.call("getConfigValues", function(err, values) {
+        Session.set("configValues", values);
+    });
+});
+
+Template.config.host = function() {
+    return Session.get("configValues")["mqttHost"];
+};
+
+Template.config.port = function() {
+    return Session.get("configValues")["mqttPort"];
+};
 
 Template.messages.topicQuery = function() {
     return Session.get("topicQuery");
