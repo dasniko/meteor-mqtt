@@ -1,3 +1,5 @@
+"use strict";
+
 // subscribe to the published collection
 Meteor.subscribe("mqttMessages");
 
@@ -62,7 +64,7 @@ Template.publish.events({
 
 // get the new query from the input field and send it to the server, reset field
 // tell the dependency, that it has changed and has to be run again
-_sendTopic = function() {
+var _sendTopic = function() {
     var el = document.getElementById("topicQuery");
     var topicQuery = el.value;
     Meteor.call("setTopicQuery", topicQuery, function() {
