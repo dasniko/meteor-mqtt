@@ -5,5 +5,6 @@
 
 standard-app-packages
 insecure
-meteor-bootstrap-3
 npm
+pinglamb:bootstrap3
+
